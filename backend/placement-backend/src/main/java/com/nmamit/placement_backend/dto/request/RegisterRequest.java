@@ -12,7 +12,7 @@ public class RegisterRequest {
     @NotBlank(message = "College email is required")
     @Email(message = "Invalid email format")
     @Pattern(
-        regexp = "^[a-zA-Z0-9._%+-]+@nmamit\\.ac\\.in$",
+        regexp = "^[a-zA-Z0-9._%+-]+@nmamit\\.in$",
         message = "College email must be a valid NMAMIT email address"
     )
     private String collegeEmail;

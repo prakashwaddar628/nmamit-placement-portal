@@ -29,7 +29,7 @@ public class UserAccount {
     private Role role;
 
     @Column(name = "is_active")
-    private boolean isActive;
+    private boolean active = true;
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
