@@ -262,5 +262,3 @@ Please follow [Conventional Commits](https://www.conventionalcommits.org/) for c
 This project is licensed under the terms of the [LICENSE](./LICENSE) file in the root of this repository.
 
 ---
-
-> Built with ❤️ for NMAM Institute of Technology, Nitte.
