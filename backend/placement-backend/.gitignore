@@ -1,37 +1,75 @@
-HELP.md
+# ============================================================
+#  placement-backend — Spring Boot .gitignore
+# ============================================================
+
+# ──────────────────────────────────────────────────────────
+#  SENSITIVE CONFIG (never commit real credentials)
+# ──────────────────────────────────────────────────────────
+application.properties
+application.yml
+application-*.properties
+application-*.yml
+!application-*.properties.example
+!application-*.yml.example
+
+# ──────────────────────────────────────────────────────────
+#  MAVEN BUILD OUTPUT
+# ──────────────────────────────────────────────────────────
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# Maven wrapper binary
+.mvn/wrapper/maven-wrapper.jar
+HELP.md
+
+# ──────────────────────────────────────────────────────────
+#  JAVA ARTEFACTS
+# ──────────────────────────────────────────────────────────
+*.class
+*.jar
+*.war
+*.ear
+
+# ──────────────────────────────────────────────────────────
+#  LOGS
+# ──────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ──────────────────────────────────────────────────────────
+#  LOCAL FILE UPLOADS (photos, resumes, JDs)
+# ──────────────────────────────────────────────────────────
+uploads/photos/
+uploads/resumes/
+uploads/job-descriptions/
+!uploads/**/.gitkeep
+
+# ──────────────────────────────────────────────────────────
+#  IDEs
+# ──────────────────────────────────────────────────────────
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse / STS
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# VS Code
+.vscode/
+!.vscode/extensions.json
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
-.vscode/
-
-/uploads/
-/target/
-*.log

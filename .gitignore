@@ -1,31 +1,36 @@
 # ============================================================
 #  NMAMIT Placement Portal — Root .gitignore
-#  Covers: Spring Boot (Maven/Java), Flutter/Dart, IDEs, OS
+#  Covers: Spring Boot (Maven / Java), Flutter / Dart,
+#          IDEs (IntelliJ, VS Code, Eclipse), OS artifacts
 # ============================================================
 
-# ──────────────────────────────────────────
-#  SENSITIVE / ENVIRONMENT CONFIG
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
+#  SENSITIVE / ENVIRONMENT CONFIG  ← most important section
+# ──────────────────────────────────────────────────────────
 **/application.properties
 **/application.yml
 **/application-*.properties
 **/application-*.yml
+!**/application-*.properties.example
+!**/application-*.yml.example
+
 **/.env
 **/.env.*
 !**/.env.example
 
-# ──────────────────────────────────────────
-#  JAVA / MAVEN (backend)
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
+#  JAVA / MAVEN
+# ──────────────────────────────────────────────────────────
+# Build output
 **/target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# Maven wrapper jar (checked-in properties file is fine)
+# Maven wrapper binary (the .properties file IS tracked)
 .mvn/wrapper/maven-wrapper.jar
 **/HELP.md
 
-# Compiled class files
+# Compiled artefacts
 *.class
 *.jar
 *.war
@@ -34,43 +39,51 @@
 
 # Log files
 *.log
-logs/
+**/logs/
 
-# ──────────────────────────────────────────
-#  UPLOADED FILES (local file storage)
-# ──────────────────────────────────────────
-**/uploads/
-# Keep directory structure in git
-!**/uploads/.gitkeep
+# ──────────────────────────────────────────────────────────
+#  UPLOADED / GENERATED FILES  (local file storage)
+# ──────────────────────────────────────────────────────────
+**/uploads/photos/
+**/uploads/resumes/
+**/uploads/job-descriptions/
+# Keep the directory placeholders
+!**/uploads/**/.gitkeep
 
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 #  FLUTTER / DART
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 # Build outputs
 flutter/**/build/
 
-# Dart tool cache
+# Dart tool cache & pub
 flutter/**/.dart_tool/
 flutter/**/.packages
 flutter/**/.pub-cache/
 flutter/**/.pub/
 flutter/**/pubspec.lock
 
-# Generated files
+# Generated source files
 flutter/**/*.g.dart
 flutter/**/*.freezed.dart
 flutter/**/*.mocks.dart
 flutter/**/*.chopper.dart
 
-# Flutter web
-flutter/**/web/
+# Coverage
+flutter/**/coverage/
 
-# iOS & macOS
+# iOS
 flutter/**/ios/Pods/
 flutter/**/ios/.symlinks/
 flutter/**/ios/Flutter/Flutter.framework
 flutter/**/ios/Flutter/Flutter.podspec
+flutter/**/ios/Flutter/Generated.xcconfig
+flutter/**/ios/Runner/GeneratedPluginRegistrant.*
+
+# macOS
 flutter/**/macos/Pods/
+flutter/**/macos/Flutter/GeneratedPluginRegistrant.swift
+flutter/**/macos/Flutter/ephemeral/
 
 # Android
 flutter/**/android/.gradle/
@@ -78,21 +91,24 @@ flutter/**/android/local.properties
 flutter/**/android/key.properties
 flutter/**/*.keystore
 flutter/**/*.jks
+
+# Firebase credentials (never commit)
 flutter/**/android/app/google-services.json
 flutter/**/ios/Runner/GoogleService-Info.plist
+flutter/**/macos/Runner/GoogleService-Info.plist
 
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 #  IDEs — IntelliJ IDEA / Android Studio
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 .idea/
 *.iws
 *.iml
 *.ipr
 out/
 
-# ──────────────────────────────────────────
-#  IDEs — Eclipse / STS
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
+#  IDEs — Eclipse / Spring Tool Suite (STS)
+# ──────────────────────────────────────────────────────────
 .apt_generated
 .classpath
 .factorypath
@@ -101,29 +117,31 @@ out/
 .springBeans
 .sts4-cache
 
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 #  IDEs — VS Code
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 .vscode/
+# Allow sharing recommended extensions and example settings
 !.vscode/extensions.json
 !.vscode/settings.json.example
 
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 #  IDEs — NetBeans
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-# ──────────────────────────────────────────
-#  OS FILES
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
+#  OS ARTIFACTS
+# ──────────────────────────────────────────────────────────
 # macOS
 .DS_Store
 .AppleDouble
 .LSOverride
+._*
 
 # Windows
 Thumbs.db
@@ -135,12 +153,13 @@ $RECYCLE.BIN/
 # Linux
 *~
 
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 #  MISC
-# ──────────────────────────────────────────
+# ──────────────────────────────────────────────────────────
 *.tmp
 *.temp
 *.bak
 *.swp
 *.swo
 node_modules/
+.gradle/
