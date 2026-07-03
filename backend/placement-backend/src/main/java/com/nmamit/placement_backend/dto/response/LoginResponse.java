@@ -15,7 +15,7 @@ public class LoginResponse {
 
     private String tokenType;
 
-    private String CollegeEmail;
+    private String collegeEmail;
 
     private String role;
 }

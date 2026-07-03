@@ -13,4 +13,5 @@ public interface UserAccountRepository extends JpaRepository<UserAccount, Long> 
     Optional<UserAccount> findByCollegeEmail(String collegeEmail);
     
     boolean existsByCollegeEmail(String collegeEmail);
+
 }
