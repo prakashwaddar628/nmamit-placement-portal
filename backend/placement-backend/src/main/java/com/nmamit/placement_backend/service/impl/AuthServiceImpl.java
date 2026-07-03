@@ -1,5 +1,6 @@
 package com.nmamit.placement_backend.service.impl;
 
+import com.nmamit.placement_backend.exception.EmailAlreadyExistsException;
 import com.nmamit.placement_backend.dto.request.RegisterRequest;
 import com.nmamit.placement_backend.dto.response.RegisterResponse;
 import com.nmamit.placement_backend.entity.UserAccount;
@@ -21,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public RegisterResponse register (RegisterRequest request) {
         if (userAccountRepository.existsByCollegeEmail(request.getCollegeEmail())) {
-            throw new RuntimeException("User with this email already exists.");
+            throw new EmailAlreadyExistsException(request.getCollegeEmail() +" Email already exists");
         }
 
         String encodedPassword = passwordEncoder.encode(request.getPassword());
