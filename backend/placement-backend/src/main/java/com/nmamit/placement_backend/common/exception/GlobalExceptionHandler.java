@@ -5,11 +5,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.nmamit.placement_backend.common.ApiResponse;
+
 import java.time.LocalDateTime;
 import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleEmailAlreadyExistsException(
+        EmailAlreadyExistsException ex) {
+
+            ApiResponse<Void> response = ApiResponse.<Void> builder()
+            .success(false)
+            .message(ex.getMessage())
+            .data(null)
+            .build();
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+
+    }
     
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<?> handleResourceNotFound(ResourceNotFoundException ex) {

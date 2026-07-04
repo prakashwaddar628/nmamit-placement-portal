@@ -1,4 +1,4 @@
-package com.nmamit.placement_backend.exception;
+package com.nmamit.placement_backend.common.exception;
 
 public class EmailAlreadyExistsException extends RuntimeException {
     

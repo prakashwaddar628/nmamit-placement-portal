@@ -1,6 +1,6 @@
 package com.nmamit.placement_backend.service.impl;
 
-import com.nmamit.placement_backend.exception.EmailAlreadyExistsException;
+import com.nmamit.placement_backend.common.exception.EmailAlreadyExistsException;
 import com.nmamit.placement_backend.dto.request.LoginRequest;
 import com.nmamit.placement_backend.dto.request.RegisterRequest;
 import com.nmamit.placement_backend.dto.response.LoginResponse;
