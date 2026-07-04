@@ -305,4 +305,53 @@ Served via `/uploads/**` static resource mapping or a dedicated file controller.
 
 ---
 
+📌 Version 1.0 (MVP)
+
+Our goal is to deliver a working Placement Portal.
+
+Authentication
+✅ Register
+✅ Login
+✅ JWT Authentication
+✅ BCrypt Passwords
+Student Module
+✅ Student Profile
+✅ Education Details
+✅ Resume Upload
+✅ Photo Upload
+Company Module
+✅ Company Management
+✅ Job Drives
+Applications
+✅ Apply
+✅ Withdraw
+✅ Track Status
+Admin
+✅ Manage Companies
+✅ Manage Job Drives
+✅ View Applications
+
+This is enough for an MVP.
+
+📌 Version 2.0 (If NMAMIT Approves)
+
+Then we'll add enterprise-grade features like:
+
+📧 Email verification
+🔐 OTP login
+📊 Student import from Excel
+👨‍💼 Placement Officer approval workflow
+☁️ Cloud storage (AWS S3/Azure Blob)
+🔔 Email notifications
+📱 Push notifications
+📈 Analytics dashboard
+📝 Audit logs
+🔒 Rate limiting
+🛡️ CSRF/XSS protection
+📄 API documentation
+🐳 Docker deployment
+☸️ Kubernetes (optional)
+
+Those are production enhancements, not MVP requirements.
+
 > Part of the [NMAMIT Placement Portal](../../README.md) monorepo.
