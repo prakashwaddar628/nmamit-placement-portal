@@ -1,0 +1,21 @@
+CREATE TABLE company (
+
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+
+    company_name VARCHAR(200) NOT NULL,
+
+    website VARCHAR(255),
+
+    industry VARCHAR(100),
+
+    description TEXT,
+
+    logo_url VARCHAR(500),
+
+    active BOOLEAN DEFAULT TRUE,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP
+);
