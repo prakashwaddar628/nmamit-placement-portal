@@ -4,13 +4,12 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name="company")
+@Table(name = "company")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -34,7 +33,8 @@ public class Company {
 
     private String logoUrl;
 
-    private Boolean active;
+    @Builder.Default
+    private Boolean active = true;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
