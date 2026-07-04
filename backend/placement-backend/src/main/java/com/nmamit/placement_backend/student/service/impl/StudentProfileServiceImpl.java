@@ -2,6 +2,7 @@ package com.nmamit.placement_backend.student.service.impl;
 
 import org.springframework.stereotype.Service;
 
+import com.nmamit.placement_backend.common.exception.ResourceNotFoundException;
 import com.nmamit.placement_backend.entity.UserAccount;
 import com.nmamit.placement_backend.repository.UserAccountRepository;
 import com.nmamit.placement_backend.student.dto.request.StudentProfileRequest;
@@ -23,7 +24,7 @@ public class StudentProfileServiceImpl implements StudentProfileService {
     private UserAccount getUser(String collegeEmail) {
 
         return userAccountRepository.findByCollegeEmail(collegeEmail)
-        .orElseThrow(() -> new RuntimeException("User not found"));
+        .orElseThrow(() -> new ResourceNotFoundException("User not found"));
     }
 
     @Override
@@ -32,7 +33,7 @@ public class StudentProfileServiceImpl implements StudentProfileService {
         UserAccount user = getUser(collegeEmail);
 
         StudentProfile profile = studentProfileRepository.findByUser(user)
-                        .orElseThrow(() -> new RuntimeException("Profile not found"));
+                        .orElseThrow(() -> new ResourceNotFoundException("Profile not found"));
         
         return mapToResponse(profile);
     }
