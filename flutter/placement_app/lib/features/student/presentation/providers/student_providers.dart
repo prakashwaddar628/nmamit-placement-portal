@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../data/student_repository.dart';
-import '../domain/dashboard_models.dart';
-import '../domain/student_models.dart';
+import '../../data/student_repository.dart';
+import '../../domain/dashboard_models.dart';
+import '../../domain/student_models.dart';
 
 final studentDashboardProvider = FutureProvider.autoDispose<StudentDashboard>((ref) {
   final repository = ref.watch(studentRepositoryProvider);

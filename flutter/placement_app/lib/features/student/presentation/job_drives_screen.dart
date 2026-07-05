@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
 import 'providers/student_providers.dart';
 import '../domain/student_models.dart';
+import '../data/student_repository.dart';
 
 class JobDrivesScreen extends ConsumerWidget {
   const JobDrivesScreen({super.key});
