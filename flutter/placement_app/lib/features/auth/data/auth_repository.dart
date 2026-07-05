@@ -34,6 +34,21 @@ class AuthRepository {
     return apiResponse.data!;
   }
 
+  Future<RegisterResponse> register(String email, String password, String role) async {
+    final response = await _dio.post(
+      AppConstants.authRegister,
+      data: {'collegeEmail': email, 'password': password, 'role': role},
+    );
+    final apiResponse = ApiResponse.fromJson(
+      response.data as Map<String, dynamic>,
+      (data) => RegisterResponse.fromJson(data as Map<String, dynamic>),
+    );
+    if (!apiResponse.success || apiResponse.data == null) {
+      throw Exception(apiResponse.message);
+    }
+    return apiResponse.data!;
+  }
+
   Future<void> saveSession(LoginResponse loginResponse, String email) async {
     await _storage.saveToken(loginResponse.token);
     await _storage.saveRole(loginResponse.role);
